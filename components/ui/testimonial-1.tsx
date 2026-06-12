@@ -4,7 +4,6 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { premiumEase } from "@/lib/motion";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
 
 interface StatItem {
@@ -47,6 +46,25 @@ const stats: StatItem[] = [
     logo: "AAPC",
   },
 ];
+
+function TrendIcon({ direction }: { direction: "up" | "down" }) {
+  const isUp = direction === "up";
+
+  return (
+    <span className={`inline-flex h-7 w-7 items-center justify-center rounded-full ${isUp ? "bg-emerald-100 text-emerald-600" : "bg-[#E9D8FF] text-[#8c6fc2]"}`}>
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
+        <path
+          fill="currentColor"
+          d={
+            isUp
+              ? "M12 4.25c.38 0 .74.16 1 .44l5.25 5.5a1.42 1.42 0 0 1-2.05 1.97l-2.78-2.91v9.08a1.42 1.42 0 1 1-2.84 0V9.25L7.8 12.16a1.42 1.42 0 0 1-2.05-1.97L11 4.69c.26-.28.62-.44 1-.44Z"
+              : "M12 19.75c-.38 0-.74-.16-1-.44l-5.25-5.5a1.42 1.42 0 0 1 2.05-1.97l2.78 2.91V5.67a1.42 1.42 0 1 1 2.84 0v9.08l2.78-2.91a1.42 1.42 0 0 1 2.05 1.97L13 19.31c-.26.28-.62.44-1 .44Z"
+          }
+        />
+      </svg>
+    </span>
+  );
+}
 
 export default function Testimonial1() {
   const reduceMotion = useReducedMotion();
@@ -169,11 +187,7 @@ export default function Testimonial1() {
               </div>
               <div className="absolute inset-0 flex translate-y-10 flex-col items-center justify-center opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="flex items-center justify-center gap-2">
-                  {stat.isIncrease ? (
-                    <ArrowUp className="h-5 w-5 text-green-500" />
-                  ) : (
-                    <ArrowDown className="h-5 w-5 text-[#171321]" />
-                  )}
+                  <TrendIcon direction={stat.isIncrease ? "up" : "down"} />
                   <span className="text-3xl font-black text-[#171321]"><AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} /></span>
                 </div>
                 <p className="mt-1 max-w-[150px] text-center text-xs font-semibold capitalize leading-5 text-[#6B6475]">

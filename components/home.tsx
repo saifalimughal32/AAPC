@@ -4,33 +4,15 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } fr
 import Image from "next/image";
 import {
   ArrowRight,
-  BadgeDollarSign,
-  BarChart3,
-  BookOpenCheck,
-  BriefcaseBusiness,
-  Calculator,
-  Check,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  CircleDollarSign,
-  ClipboardCheck,
-  FileCheck2,
-  Landmark,
   Mail,
   MapPin,
   Menu,
-  MessageCircle,
-  Newspaper,
   Phone,
-  PieChart,
   Play,
   Plus,
-  SearchCheck,
-  ShieldCheck,
-  Sparkles,
-  UserCheck,
-  WalletCards,
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -87,6 +69,92 @@ function Highlight({ children, dark = false }: { children: React.ReactNode; dark
     <span className={`rounded-[3px] px-1.5 py-0.5 ${dark ? "bg-[#171321] text-white" : "bg-[#e2cafa] text-white"}`}>
       {children}
     </span>
+  );
+}
+
+type FilledIconProps = {
+  className?: string;
+};
+
+function CostIcon({ className = "h-6 w-6" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M8 7.5A4.5 4.5 0 0 1 12.5 3h7A4.5 4.5 0 0 1 24 7.5v17a4.5 4.5 0 0 1-4.5 4.5h-7A4.5 4.5 0 0 1 8 24.5v-17Z" opacity=".18" />
+      <path fill="currentColor" d="M12.75 5h6.5A2.75 2.75 0 0 1 22 7.75v16.5A2.75 2.75 0 0 1 19.25 27h-6.5A2.75 2.75 0 0 1 10 24.25V7.75A2.75 2.75 0 0 1 12.75 5Zm1.5 4.25a1.25 1.25 0 1 0 0 2.5h3.5a1.25 1.25 0 1 0 0-2.5h-3.5Zm-.5 13.5h4.5a1.25 1.25 0 1 0 0-2.5h-4.5a1.25 1.25 0 1 0 0 2.5Z" />
+      <path fill="currentColor" d="M16 13c-2.34 0-4 1.25-4 3s1.66 3 4 3 4-1.25 4-3-1.66-3-4-3Zm0 1.8c.78 0 1.35.42 1.35 1.2S16.78 17.2 16 17.2s-1.35-.42-1.35-1.2.57-1.2 1.35-1.2Z" opacity=".92" />
+    </svg>
+  );
+}
+
+function TaxPlanningIcon({ className = "h-6 w-6" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M8 4h16a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" opacity=".18" />
+      <path fill="currentColor" d="M9 8.5A1.5 1.5 0 0 1 10.5 7h11A1.5 1.5 0 0 1 23 8.5v3a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 9 11.5v-3Zm2.2 7.1a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm4.8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm4.8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm-9.6 5.2a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm4.8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Zm4.8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Z" />
+    </svg>
+  );
+}
+
+function PayrollIcon({ className = "h-6 w-6" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M6 8.5A3.5 3.5 0 0 1 9.5 5h13A3.5 3.5 0 0 1 26 8.5v15a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 6 23.5v-15Z" opacity=".18" />
+      <path fill="currentColor" d="M9.5 9h13A1.5 1.5 0 0 1 24 10.5V13H8v-2.5A1.5 1.5 0 0 1 9.5 9Zm-1.5 6h16v7.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 8 22.5V15Zm4.25 3.25a1.25 1.25 0 1 0 0 2.5h7.5a1.25 1.25 0 1 0 0-2.5h-7.5Z" />
+      <path fill="currentColor" d="M10 11.25h12v1H10v-1Z" opacity=".5" />
+    </svg>
+  );
+}
+
+function AuditIcon({ className = "h-6 w-6" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M9 5h14a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z" opacity=".18" />
+      <path fill="currentColor" d="M12.5 4h7A2.5 2.5 0 0 1 22 6.5V8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V6.5A2.5 2.5 0 0 1 12.5 4Zm1 3.5h5a1 1 0 1 0 0-2h-5a1 1 0 1 0 0 2Zm8.2 8.15-6.15 6.15a1.45 1.45 0 0 1-2.05 0l-3.15-3.15a1.45 1.45 0 0 1 2.05-2.05l2.12 2.12 5.13-5.12a1.45 1.45 0 1 1 2.05 2.05Z" />
+    </svg>
+  );
+}
+
+function FinanceIcon({ className = "h-6 w-6" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M5 24.5A2.5 2.5 0 0 0 7.5 27h17a2.5 2.5 0 0 0 0-5h-17A2.5 2.5 0 0 0 5 24.5Z" opacity=".18" />
+      <path fill="currentColor" d="M9 13.25A2.25 2.25 0 0 1 11.25 11h.5A2.25 2.25 0 0 1 14 13.25V22H9v-8.75Zm6.5-5A2.25 2.25 0 0 1 17.75 6h.5a2.25 2.25 0 0 1 2.25 2.25V22h-5V8.25ZM22 16.25A2.25 2.25 0 0 1 24.25 14h.5A2.25 2.25 0 0 1 27 16.25V22h-5v-5.75ZM6 24h22a1.5 1.5 0 0 1 0 3H6a1.5 1.5 0 0 1 0-3Z" />
+    </svg>
+  );
+}
+
+function ConsultationIcon({ className = "h-5 w-5" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M6 8.5A4.5 4.5 0 0 1 10.5 4h11A4.5 4.5 0 0 1 26 8.5v7A4.5 4.5 0 0 1 21.5 20H16l-5.8 5.2A1.3 1.3 0 0 1 8 24.23V19.5A4.5 4.5 0 0 1 6 15.75V8.5Z" opacity=".22" />
+      <path fill="currentColor" d="M11 10.75a1.25 1.25 0 0 1 1.25-1.25h7.5a1.25 1.25 0 1 1 0 2.5h-7.5A1.25 1.25 0 0 1 11 10.75Zm0 5a1.25 1.25 0 0 1 1.25-1.25h5.5a1.25 1.25 0 1 1 0 2.5h-5.5A1.25 1.25 0 0 1 11 15.75Z" />
+    </svg>
+  );
+}
+
+function PackageIcon({ className = "h-5 w-5" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M5 10.5A3.5 3.5 0 0 1 8.5 7h15a3.5 3.5 0 0 1 3.5 3.5v11A3.5 3.5 0 0 1 23.5 25h-15A3.5 3.5 0 0 1 5 21.5v-11Z" opacity=".22" />
+      <path fill="currentColor" d="m16 5 10.5 5.5L16 16 5.5 10.5 16 5Zm-8 8.6 7 3.65v8.1l-7-3.75v-8Zm16 0v8l-7 3.75v-8.1l7-3.65Z" />
+    </svg>
+  );
+}
+
+function DeliveryIcon({ className = "h-5 w-5" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M8 5h16a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z" opacity=".2" />
+      <path fill="currentColor" d="M10.5 10.5A1.5 1.5 0 0 1 12 9h8a1.5 1.5 0 0 1 0 3h-8a1.5 1.5 0 0 1-1.5-1.5Zm0 5.5a1.5 1.5 0 0 1 1.5-1.5h5a1.5 1.5 0 0 1 0 3h-5a1.5 1.5 0 0 1-1.5-1.5Zm12.68.25a1.35 1.35 0 0 1 .07 1.9l-5.18 5.55a1.35 1.35 0 0 1-1.95.03l-2.45-2.45a1.35 1.35 0 0 1 1.91-1.91l1.46 1.46 4.22-4.52a1.35 1.35 0 0 1 1.92-.06Z" />
+    </svg>
+  );
+}
+
+function FilledCheckIcon({ className = "h-5 w-5" }: FilledIconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <path fill="currentColor" d="M12 2.25a9.75 9.75 0 1 0 0 19.5 9.75 9.75 0 0 0 0-19.5Zm4.42 7.47-5.18 5.72a1.25 1.25 0 0 1-1.83.03l-2.38-2.38a1.25 1.25 0 0 1 1.77-1.77l1.45 1.45 4.31-4.77a1.25 1.25 0 1 1 1.86 1.72Z" />
+    </svg>
   );
 }
 
@@ -467,7 +535,7 @@ export function AboutSection() {
           <h2 className="mt-4 max-w-[460px] text-[38px] font-black leading-[1.05] md:text-[44px]">Your Financial Partner For Success</h2>
           <p className="mt-5 max-w-[530px] text-sm leading-7 text-[#6B6475]">AAPC brings accounting discipline, tax awareness, and practical reporting into one clean advisory experience for small businesses.</p>
           <div className="mt-7 flex max-w-[420px] gap-4 rounded-[12px] bg-white p-4 shadow-[0_12px_34px_rgba(23,19,33,0.08)]">
-            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E9D8FF] text-[#8c6fc2]"><WalletCards /></span>
+            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E9D8FF] text-[#8c6fc2]"><CostIcon className="h-7 w-7" /></span>
             <div>
               <h3 className="font-black">Cost-Effective</h3>
               <p className="mt-1 text-sm leading-6 text-[#6B6475]">Clear monthly support with careful, useful financial guidance.</p>
@@ -481,10 +549,10 @@ export function AboutSection() {
 }
 
 const serviceItems = [
-  { title: "Tax Planning", icon: Calculator, desc: "Quarterly planning, filing reminders, and deduction reviews before deadlines arrive." },
-  { title: "Payroll Process", icon: WalletCards, desc: "Employee payroll, remittances, and year-end slips handled with clean records." },
-  { title: "Audit Services", icon: ClipboardCheck, desc: "Audit-ready schedules, reconciliations, and document packs for smoother reviews." },
-  { title: "Finance Analysis", icon: BarChart3, desc: "Monthly insight on cash flow, margins, and the numbers that guide decisions." },
+  { title: "Tax Planning", icon: TaxPlanningIcon, desc: "Quarterly planning, filing reminders, and deduction reviews before deadlines arrive." },
+  { title: "Payroll Process", icon: PayrollIcon, desc: "Employee payroll, remittances, and year-end slips handled with clean records." },
+  { title: "Audit Services", icon: AuditIcon, desc: "Audit-ready schedules, reconciliations, and document packs for smoother reviews." },
+  { title: "Finance Analysis", icon: FinanceIcon, desc: "Monthly insight on cash flow, margins, and the numbers that guide decisions." },
 ];
 
 export function ServicesSection() {
@@ -514,8 +582,8 @@ export function ServicesSection() {
                 className="group sticky top-[112px] rounded-[14px] border border-[#E8E2F2] bg-[linear-gradient(145deg,#ffffff_0%,#f8f3ff_100%)] p-5 shadow-[0_14px_34px_rgba(23,19,33,0.065)] transition hover:border-[#d2bdeb] hover:shadow-[0_22px_48px_rgba(23,19,33,0.12)] sm:static sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:p-0 sm:pb-7 sm:shadow-none sm:hover:shadow-none"
               >
                 <div className="flex gap-4">
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[linear-gradient(135deg,#E9D8FF_0%,#DCEEFF_100%)] text-[#8c6fc2] shadow-[0_10px_22px_rgba(140,111,194,0.12)]">
-                    <Icon className="h-6 w-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[linear-gradient(135deg,#E9D8FF_0%,#DCEEFF_100%)] text-[#8c6fc2] shadow-[0_10px_22px_rgba(140,111,194,0.12)] ring-1 ring-white/70">
+                    <Icon className="h-7 w-7 transition duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
                   </span>
                   <div>
                     <h3 className="text-base font-black">{item.title}</h3>
@@ -534,9 +602,9 @@ export function ServicesSection() {
 export function WorksSection() {
   const reduceMotion = useReducedMotion();
   const steps = [
-    { title: "Consultation Section", icon: MessageCircle, dark: false, desc: "Share your current books, tax deadlines, and goals in a short discovery call." },
-    { title: "Choose Your Package", icon: SearchCheck, dark: true, desc: "Pick monthly bookkeeping, tax, payroll, or a combined advisory plan." },
-    { title: "Get Your Service", icon: FileCheck2, dark: false, desc: "Upload documents securely while AAPC keeps reports and next steps moving." },
+    { title: "Consultation Section", icon: ConsultationIcon, dark: false, desc: "Share your current books, tax deadlines, and goals in a short discovery call." },
+    { title: "Choose Your Package", icon: PackageIcon, dark: true, desc: "Pick monthly bookkeeping, tax, payroll, or a combined advisory plan." },
+    { title: "Get Your Service", icon: DeliveryIcon, dark: false, desc: "Upload documents securely while AAPC keeps reports and next steps moving." },
   ];
   return (
     <motion.section {...revealProps(Boolean(reduceMotion))} variants={fadeUp} className="bg-white py-14 md:py-20">
@@ -580,7 +648,7 @@ export function WorksSection() {
                 >
                   <span className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ${step.dark ? "bg-white/10" : "bg-[#171321] text-white"}`}>
                     <motion.span initial={reduceMotion ? false : { scale: 0.9 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: index * 0.1 + 0.12, ease: premiumEase }}>
-                      <Icon className="h-5 w-5 transition duration-300 group-hover:scale-110" />
+                      <Icon className="h-6 w-6 transition duration-300 group-hover:scale-110" />
                     </motion.span>
                   </span>
                   <h3 className="mt-6 font-black">{step.title}</h3>
@@ -679,7 +747,7 @@ export function PricingSection() {
               <ul className="grid min-h-[220px] content-start gap-4 px-2 pb-6 pt-9 text-[15px] font-semibold tracking-[-0.02em] text-[#40364c] md:min-h-[240px]">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2.5">
-                    <Check className="h-4 w-4 shrink-0 text-[#b28de2]" />
+                    <FilledCheckIcon className="h-5 w-5 shrink-0 text-[#b28de2]" />
                     {feature}
                   </li>
                 ))}
