@@ -18,7 +18,7 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #fbf8ff 42%, #ffffff 100%);
   color: #1d2939;
   font-family: var(--font-inter), Inter, sans-serif;
   overflow-x: clip;
@@ -40,11 +40,17 @@ a {
 }
 
 .partner-marquee {
-  animation: partner-marquee 22s linear infinite;
+  max-width: 100%;
 }
 
-.partner-marquee:hover {
-  animation-play-state: paused;
+@media (min-width: 768px) {
+  .partner-marquee {
+    animation: partner-marquee 22s linear infinite;
+  }
+
+  .partner-marquee:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes partner-marquee {
@@ -67,5 +73,14 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
