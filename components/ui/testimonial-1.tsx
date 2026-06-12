@@ -50,6 +50,9 @@ const stats: StatItem[] = [
 
 export default function Testimonial1() {
   const reduceMotion = useReducedMotion();
+  const textReveal = reduceMotion ? false : { opacity: 0, y: 20 };
+  const textVisible = { opacity: 1, y: 0 };
+  const imageReveal = reduceMotion ? false : { opacity: 0, scale: 0.9 };
 
   return (
     <section className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#f8f3ff_0%,#ffffff_50%,#eef7ff_100%)] px-5 py-14 text-[#171321] md:px-8 md:py-20 lg:px-16">
@@ -62,8 +65,8 @@ export default function Testimonial1() {
 
         <div className="mx-auto max-w-screen-xl text-center text-[#171321]">
           <h2 className="text-[30px] font-black leading-tight md:text-4xl lg:text-5xl">
-            <span className="inline-block overflow-hidden align-middle">
-              <motion.span className="inline-block" initial={reduceMotion ? false : { y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: premiumEase }}>
+            <span className="inline-block align-middle">
+              <motion.span className="inline-block" initial={textReveal} animate={textVisible} transition={{ duration: 0.65, ease: premiumEase }}>
                 We make it easy for
               </motion.span>
             </span>
@@ -71,7 +74,7 @@ export default function Testimonial1() {
               <TooltipPrimitive.Root>
                 <TooltipPrimitive.Trigger asChild>
                   <span className="relative mx-2 inline-block align-middle">
-                    <motion.span initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: premiumEase }} className="block h-12 w-12 overflow-hidden rounded-full border-2 border-white transition-all duration-300 md:h-16 md:w-16 md:hover:w-36">
+                    <motion.span initial={imageReveal} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45, ease: premiumEase }} className="block h-12 w-12 overflow-hidden rounded-full border-2 border-white transition-all duration-300 md:h-16 md:w-16 md:hover:w-36">
                       <Image
                         src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=220&q=85"
                         alt="Small business client"
@@ -95,16 +98,16 @@ export default function Testimonial1() {
                 </TooltipPrimitive.Content>
               </TooltipPrimitive.Root>
             </TooltipPrimitive.Provider>
-            <span className="inline-block overflow-hidden align-middle">
-              <motion.span className="inline-block" initial={reduceMotion ? false : { y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.08, ease: premiumEase }}>
+            <span className="inline-block align-middle">
+              <motion.span className="inline-block" initial={textReveal} animate={textVisible} transition={{ duration: 0.65, delay: 0.08, ease: premiumEase }}>
                 small businesses
               </motion.span>
             </span>
           </h2>
 
           <h2 className="mt-2 text-[30px] font-black leading-tight md:text-4xl lg:text-5xl">
-            <span className="inline-block overflow-hidden align-middle">
-              <motion.span className="inline-block" initial={reduceMotion ? false : { y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.12, ease: premiumEase }}>
+            <span className="inline-block align-middle">
+              <motion.span className="inline-block" initial={textReveal} animate={textVisible} transition={{ duration: 0.65, delay: 0.12, ease: premiumEase }}>
                 and their
               </motion.span>
             </span>
@@ -112,7 +115,7 @@ export default function Testimonial1() {
               <TooltipPrimitive.Root>
                 <TooltipPrimitive.Trigger asChild>
                   <span className="relative mx-2 inline-block align-middle">
-                    <motion.span initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.1, ease: premiumEase }} className="block h-14 w-14 overflow-hidden rounded-full border-2 border-white transition-all duration-300 md:h-16 md:w-16 md:hover:w-36">
+                    <motion.span initial={imageReveal} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45, delay: 0.1, ease: premiumEase }} className="block h-14 w-14 overflow-hidden rounded-full border-2 border-white transition-all duration-300 md:h-16 md:w-16 md:hover:w-36">
                       <Image
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&q=85"
                         alt="Business owner"
@@ -136,14 +139,14 @@ export default function Testimonial1() {
                 </TooltipPrimitive.Content>
               </TooltipPrimitive.Root>
             </TooltipPrimitive.Provider>
-            <span className="inline-block overflow-hidden align-middle">
-              <motion.span className="inline-block" initial={reduceMotion ? false : { y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.18, ease: premiumEase }}>
+            <span className="inline-block align-middle">
+              <motion.span className="inline-block" initial={textReveal} animate={textVisible} transition={{ duration: 0.65, delay: 0.18, ease: premiumEase }}>
                 teams manage
               </motion.span>
             </span>
           </h2>
-          <h2 className="mt-2 overflow-hidden text-[30px] font-black leading-tight text-[#251f30] md:text-4xl lg:text-5xl">
-            <motion.span className="block" initial={reduceMotion ? false : { y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.24, ease: premiumEase }}>
+          <h2 className="mt-2 text-[30px] font-black leading-tight text-[#251f30] md:text-4xl lg:text-5xl">
+            <motion.span className="block" initial={textReveal} animate={textVisible} transition={{ duration: 0.65, delay: 0.24, ease: premiumEase }}>
               accounting with confidence
             </motion.span>
           </h2>
