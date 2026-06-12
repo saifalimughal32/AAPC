@@ -11,6 +11,8 @@ import {
   Calculator,
   Check,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   CircleDollarSign,
   ClipboardCheck,
   FileCheck2,
@@ -507,11 +509,11 @@ export function ServicesSection() {
           <p className="mt-5 max-w-[430px] text-sm leading-7 text-[#6B6475]">Use one trusted team for recurring accounting, tax compliance, payroll, audit readiness, and advisory reporting.</p>
           <div className="mt-7"><DarkButton href="/service">See More</DarkButton></div>
         </div>
-        <motion.div variants={staggerContainer} className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+        <motion.div variants={staggerContainer} className="grid gap-5 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8">
           {serviceItems.map((item) => {
             const Icon = item.icon;
             return (
-              <motion.article key={item.title} variants={fadeUp} whileHover={reduceMotion ? undefined : { y: -5 }} className="group border-b border-[#E8E2F2] pb-7">
+              <motion.article key={item.title} variants={fadeUp} className="group rounded-[14px] border border-[#E8E2F2] bg-white p-5 shadow-[0_12px_28px_rgba(23,19,33,0.05)] sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:p-0 sm:pb-7 sm:shadow-none">
                 <div className="flex gap-4">
                   <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#E9D8FF] text-[#8c6fc2]">
                     <Icon className="h-6 w-6 transition duration-300 group-hover:scale-110" />
@@ -616,30 +618,93 @@ export function PricingSection() {
 
 export function TestimonialsSection() {
   const reduceMotion = useReducedMotion();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const testimonials = [
+    {
+      quote: "AAPC gave us monthly clarity without adding complexity. Their team made tax season feel organized for the first time.",
+      name: "Amanda Monroe",
+      role: "Founder",
+      avatar: images.avatarThree,
+    },
+    {
+      quote: "Their bookkeeping support helped us understand cash flow every week. We stopped guessing and started making decisions with confidence.",
+      name: "Daniel Brooks",
+      role: "Operations Lead",
+      avatar: images.avatarTwo,
+    },
+    {
+      quote: "Payroll, sales tax, and reporting are finally handled on time. AAPC feels like a calm finance partner for our small team.",
+      name: "Sofia Rahman",
+      role: "Retail Owner",
+      avatar: images.avatarOne,
+    },
+    {
+      quote: "We needed cleaner year-end records and practical advice. The AAPC team explained every step and kept the process easy.",
+      name: "Marcus Lee",
+      role: "Agency Director",
+      avatar: images.avatarTwo,
+    },
+  ];
+  const testimonial = testimonials[activeTestimonial];
+  const goToPreviousTestimonial = () => {
+    setActiveTestimonial((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+  };
+  const goToNextTestimonial = () => {
+    setActiveTestimonial((current) => (current === testimonials.length - 1 ? 0 : current + 1));
+  };
 
   return (
     <motion.section {...revealProps(Boolean(reduceMotion))} variants={fadeUp} className="bg-white py-16 md:py-20">
-      <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+      <Container className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
         <div>
           <p className="text-xs font-bold">Client <Highlight>Testimonial</Highlight></p>
           <h2 className="mt-4 text-[36px] font-black leading-[1.08]">What They Say About Us?</h2>
           <p className="mt-5 text-sm leading-7 text-[#6B6475]">Clients rely on us for clean reporting, calm advice, and dependable accounting routines.</p>
           <div className="mt-7"><DarkButton href="/case-study">See More</DarkButton></div>
         </div>
-        <motion.div whileHover={reduceMotion ? undefined : { y: -5 }} className="rounded-[14px] bg-white p-9 shadow-[0_16px_48px_rgba(23,19,33,0.10)] transition hover:shadow-[0_24px_58px_rgba(23,19,33,0.13)]">
-          <div className="text-[#F6B545]">
-            {"★★★★★".split("").map((star, index) => (
-              <motion.span key={index} initial={reduceMotion ? false : { opacity: 0, y: 5 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
-                {star}
-              </motion.span>
-            ))}
-          </div>
-          <p className="mt-5 text-sm leading-7 text-[#6B6475]">AAPC gave us monthly clarity without adding complexity. Their team made tax season feel organized for the first time.</p>
-          <div className="mt-6 flex items-center gap-3">
-            <motion.div whileHover={reduceMotion ? undefined : { scale: 1.04 }}>
-              <Image src={images.avatarThree} alt="Amanda Monroe" width={42} height={42} loading="eager" className="h-11 w-11 rounded-full object-cover" />
-            </motion.div>
-            <div><div className="text-sm font-black">Amanda Monroe</div><div className="text-xs text-[#6B6475]">Founder</div></div>
+        <motion.div variants={fadeUp} className="relative">
+          <motion.article
+            key={testimonial.name}
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: premiumEase }}
+            className="flex min-h-[300px] flex-col rounded-[14px] bg-white p-8 shadow-[0_16px_48px_rgba(23,19,33,0.10)] md:p-10"
+          >
+            <div className="text-[#F6B545]">
+              {"★★★★★".split("").map((star, index) => (
+                <motion.span key={index} initial={reduceMotion ? false : { opacity: 0, y: 5 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
+                  {star}
+                </motion.span>
+              ))}
+            </div>
+            <p className="mt-6 text-base leading-8 text-[#6B6475]">{testimonial.quote}</p>
+            <div className="mt-auto flex items-center gap-3 pt-8">
+              <motion.div whileHover={reduceMotion ? undefined : { scale: 1.04 }}>
+                <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} loading="eager" className="h-12 w-12 rounded-full object-cover" />
+              </motion.div>
+              <div><div className="text-sm font-black">{testimonial.name}</div><div className="text-xs text-[#6B6475]">{testimonial.role}</div></div>
+            </div>
+          </motion.article>
+          <div className="mt-6 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              {testimonials.map((item, index) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={() => setActiveTestimonial(index)}
+                  aria-label={`Show ${item.name} testimonial`}
+                  className={`h-2.5 rounded-full transition-all ${index === activeTestimonial ? "w-8 bg-[#171321]" : "w-2.5 bg-[#E9D8FF]"}`}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-3">
+              <button type="button" onClick={goToPreviousTestimonial} aria-label="Previous testimonial" className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E9D8FF] text-[#171321] transition hover:bg-[#F3ECFF]">
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button type="button" onClick={goToNextTestimonial} aria-label="Next testimonial" className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#171321] text-white shadow-[0_12px_24px_rgba(23,19,33,0.12)] transition hover:bg-[#2b2438]">
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </motion.div>
       </Container>

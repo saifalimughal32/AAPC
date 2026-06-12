@@ -12,6 +12,7 @@ import {
   WorksSection,
 } from "@/components/home";
 import HeroSection from "@/components/HeroSection";
+import Testimonial1 from "@/components/ui/testimonial-1";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <WorksSection />
         <PricingSection />
         <TestimonialsSection />
+        <Testimonial1 />
         <FAQSection />
         <BlogSection />
         <CTASection />

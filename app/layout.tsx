@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "AAPC | Your Choice For Small Business",
   description:
     "Premium accounting, tax, payroll, audit, and business advisory services for small businesses.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -26,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

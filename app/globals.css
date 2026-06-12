@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   background: #ffffff;
   color: #1d2939;
   font-family: var(--font-inter), Inter, sans-serif;
+  overflow-x: clip;
 }
 
 a {
