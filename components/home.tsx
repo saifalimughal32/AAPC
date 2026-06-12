@@ -505,12 +505,13 @@ export function ServicesSection() {
             return (
               <motion.article
                 key={item.title}
+                style={{ zIndex: index + 1 }}
                 initial={reduceMotion ? false : { opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.55, delay: index * 0.09, ease: premiumEase }}
                 whileHover={reduceMotion ? undefined : { y: -8, scale: 1.012 }}
-                className="group rounded-[14px] border border-[#E8E2F2] bg-[linear-gradient(145deg,#ffffff_0%,#f8f3ff_100%)] p-5 shadow-[0_14px_34px_rgba(23,19,33,0.065)] transition hover:border-[#d2bdeb] hover:shadow-[0_22px_48px_rgba(23,19,33,0.12)] sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:p-0 sm:pb-7 sm:shadow-none sm:hover:shadow-none"
+                className="group sticky top-[112px] rounded-[14px] border border-[#E8E2F2] bg-[linear-gradient(145deg,#ffffff_0%,#f8f3ff_100%)] p-5 shadow-[0_14px_34px_rgba(23,19,33,0.065)] transition hover:border-[#d2bdeb] hover:shadow-[0_22px_48px_rgba(23,19,33,0.12)] sm:static sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:p-0 sm:pb-7 sm:shadow-none sm:hover:shadow-none"
               >
                 <div className="flex gap-4">
                   <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[linear-gradient(135deg,#E9D8FF_0%,#DCEEFF_100%)] text-[#8c6fc2] shadow-[0_10px_22px_rgba(140,111,194,0.12)]">
