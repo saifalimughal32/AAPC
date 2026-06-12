@@ -403,15 +403,15 @@ export function LogoStrip() {
           initial={false}
           animate="visible"
           variants={staggerContainer}
-          className="mx-auto max-w-[1120px] overflow-hidden rounded-[14px] bg-[linear-gradient(135deg,#171321_0%,#2a2038_58%,#153142_100%)] px-8 py-6 text-white shadow-[0_18px_46px_rgba(23,19,33,0.10)]"
+          className="mx-auto max-w-[1120px] overflow-hidden rounded-[14px] bg-[linear-gradient(135deg,#171321_0%,#2a2038_58%,#153142_100%)] px-4 py-5 text-white shadow-[0_18px_46px_rgba(23,19,33,0.10)] sm:px-6 md:px-8 md:py-6"
         >
-          <div className="partner-marquee flex flex-wrap items-center justify-center gap-y-4 md:w-max md:flex-nowrap md:justify-start md:gap-y-0">
+          <div className="partner-marquee flex flex-nowrap items-center justify-start">
             {marqueePartners.map((partner, index) => (
               <motion.div
                 key={`${partner.name}-${index}`}
                 variants={fadeUp}
                 aria-label={partner.name}
-                className={`flex min-w-[190px] shrink-0 items-center justify-center gap-3 border-r border-white/24 px-8 text-white/82 transition duration-300 hover:text-white hover:opacity-100 ${index >= partners.length ? "hidden md:flex" : ""} ${partner.className}`}
+                className={`flex min-w-[148px] shrink-0 items-center justify-center gap-3 border-r border-white/24 px-5 text-white/82 transition duration-300 hover:text-white hover:opacity-100 sm:min-w-[172px] sm:px-7 md:min-w-[190px] md:px-8 ${partner.className}`}
               >
                 {partner.render}
               </motion.div>
