@@ -468,20 +468,20 @@ function FAQFullSection() {
   const reduceMotion = useReducedMotion();
   const questions = [
     {
-      question: "How To Change My Photo From Admin Dashboard?",
-      answer: "Yes. You can send updated documents securely and we will confirm what changed before updating your file.",
+      question: "What documents do I need to get started?",
+      answer: "Usually your prior-year tax return, recent bank statements, bookkeeping exports, payroll records, and any CRA notices. We send a simple checklist after the first call.",
     },
     {
-      question: "How To Change My Password Easily?",
-      answer: "Use the password reset option on the client portal, or contact AAPC and we will guide you through a secure reset.",
+      question: "Do you work with businesses outside Vancouver?",
+      answer: "Yes. Most AAPC work can be handled remotely through secure document sharing, video calls, and clear monthly reporting.",
     },
     {
-      question: "How To Change My Subscription Plan Using PayPal",
-      answer: "Tell us which package you want to move to and we will confirm the new monthly amount before updating your PayPal billing.",
+      question: "Can you help before tax season starts?",
+      answer: "Yes. We can review your records, estimate tax exposure, organize deductions, and set up a quarterly planning rhythm before deadlines become stressful.",
     },
     {
-      question: "What Payment Methods Are Available?",
-      answer: "We support secure online payments, PayPal billing, bank transfer, and scheduled monthly payment options for active clients.",
+      question: "Which accounting software do you support?",
+      answer: "We work with QuickBooks, Xero, Bill.com, Gusto, Hubdoc, and clean spreadsheet exports when a client is still transitioning systems.",
     },
     {
       question: "Where Can I Find Market Research Reports?",
@@ -544,19 +544,19 @@ function PopularQuestions() {
   const reduceMotion = useReducedMotion();
   const popularQuestions = [
     {
-      question: "How To Change My Photo From Admin Dashboard?",
-      answer: "Yes. You can send updated documents securely and we will confirm what changed before updating your file.",
+      question: "What documents do I need to get started?",
+      answer: "Usually your prior-year tax return, recent bank statements, bookkeeping exports, payroll records, and any CRA notices. We send a simple checklist after the first call.",
     },
     {
-      question: "How To Change My Password Easily?",
-      answer: "Use the password reset option on the client portal, or contact AAPC and we will guide you through a secure reset.",
+      question: "How fast can monthly bookkeeping begin?",
+      answer: "Most onboarding starts within a few business days after we receive access, statements, and your opening checklist.",
     },
     {
-      question: "How To Change My Subscription Plan Using PayPal",
-      answer: "Tell us which package you want to move to and we will confirm the new monthly amount before updating your PayPal billing.",
+      question: "Can AAPC prepare payroll and year-end slips?",
+      answer: "Yes. We support recurring payroll, remittances, T4 preparation, ROE support, and payroll record cleanup.",
     },
     {
-      question: "What Payment Methods Are Available?",
+      question: "What payment methods are available?",
       answer: "We support secure online payments, PayPal billing, bank transfer, and scheduled monthly payment options for active clients.",
     },
   ];
@@ -613,8 +613,8 @@ function ContactSection() {
   const contactItems = [
     { title: "Email", value: "info@aapc.co", href: "mailto:info@aapc.co", icon: Mail },
     { title: "Phone", value: "(604) 123-4567", href: "tel:+16041234567", icon: Phone },
-    { title: "Office", value: "Vancouver, BC", href: "#", icon: MapPin },
-    { title: "Business Hours", value: "Mon - Fri, 9:00 AM - 5:00 PM", href: "#", icon: Landmark },
+    { title: "Office", value: "Vancouver, BC", href: "https://www.google.com/maps/search/?api=1&query=Vancouver%2C%20BC", icon: MapPin },
+    { title: "Business Hours", value: "Mon - Fri, 9:00 AM - 5:00 PM", href: "mailto:info@aapc.co?subject=Business%20hours%20question", icon: Landmark },
   ];
   return (
     <motion.section {...revealProps(Boolean(reduceMotion))} variants={fadeUp} className="bg-white py-16 md:py-24">

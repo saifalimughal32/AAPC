@@ -40,7 +40,7 @@ const LAVENDER_LIGHT = "#F8F3FF";
 const HIGHLIGHT = "#E9D8FF";
 const MUTED = "#6B6475";
 
-const navLinks = ["Home", "About Us", "Service", "Pages"];
+const navLinks = ["Home", "About Us", "Service", "Resources"];
 
 const images = {
   hero: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=90",
@@ -146,7 +146,7 @@ const navHref = (link: string) => {
   if (link === "Home") return "/";
   if (link === "About Us") return "/about";
   if (link === "Service") return "/service";
-  return "/pricing";
+  return "/case-study";
 };
 
 const pageLinks = [
@@ -188,10 +188,10 @@ export function Navbar() {
               <div key={link} className="group relative">
                 <a href={navHref(link)} className="relative text-[15px] font-semibold text-[#171321] transition duration-300 hover:text-[#9c75d1]">
                   {link}
-                  {link === "Pages" ? <ChevronDown className="ml-1 inline h-3.5 w-3.5" /> : null}
+                  {link === "Resources" ? <ChevronDown className="ml-1 inline h-3.5 w-3.5" /> : null}
                   <span className="absolute -bottom-2 left-0 h-px w-0 bg-[#8c6fc2] transition-all duration-300 group-hover:w-full" />
                 </a>
-                {link === "Pages" ? (
+                {link === "Resources" ? (
                   <div className="invisible absolute left-1/2 top-8 z-20 w-48 -translate-x-1/2 rounded-[14px] border border-[#E8E2F2] bg-white p-2 opacity-0 shadow-[0_18px_44px_rgba(23,19,33,0.10)] transition duration-200 group-hover:visible group-hover:opacity-100">
                     {pageLinks.map((item) => (
                       <a key={item.label} href={item.href} className="block rounded-lg px-3 py-2 text-sm font-bold text-[#171321] hover:bg-[#F3ECFF] hover:text-[#8c6fc2]">
@@ -263,7 +263,7 @@ export function HeroSection() {
                 <Play className="ml-0.5 h-5 w-5 fill-white" />
               </motion.button>
             </div>
-            <p className="mt-[18px] text-base font-bold leading-[1.45] text-[#251f30]">Seamless Home<br />Financing Start Here</p>
+            <p className="mt-[18px] text-base font-bold leading-[1.45] text-[#251f30]">Trusted Accounting<br />Starts With Clarity</p>
           </motion.div>
         </motion.div>
 
@@ -489,10 +489,10 @@ export function AboutSection() {
 }
 
 const serviceItems = [
-  { title: "Tax Planning", icon: Calculator },
-  { title: "Payroll Process", icon: WalletCards },
-  { title: "Audit Services", icon: ClipboardCheck },
-  { title: "Finance Analysis", icon: BarChart3 },
+  { title: "Tax Planning", icon: Calculator, desc: "Quarterly planning, filing reminders, and deduction reviews before deadlines arrive." },
+  { title: "Payroll Process", icon: WalletCards, desc: "Employee payroll, remittances, and year-end slips handled with clean records." },
+  { title: "Audit Services", icon: ClipboardCheck, desc: "Audit-ready schedules, reconciliations, and document packs for smoother reviews." },
+  { title: "Finance Analysis", icon: BarChart3, desc: "Monthly insight on cash flow, margins, and the numbers that guide decisions." },
 ];
 
 export function ServicesSection() {
@@ -518,7 +518,7 @@ export function ServicesSection() {
                   </span>
                   <div>
                     <h3 className="text-base font-black">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#6B6475]">Accurate, organized, and easy-to-understand financial support for business decisions.</p>
+                    <p className="mt-2 text-sm leading-6 text-[#6B6475]">{item.desc}</p>
                   </div>
                 </div>
               </motion.article>
@@ -533,9 +533,9 @@ export function ServicesSection() {
 export function WorksSection() {
   const reduceMotion = useReducedMotion();
   const steps = [
-    { title: "Consultation Section", icon: MessageCircle, dark: false },
-    { title: "Choose Your Package", icon: SearchCheck, dark: true },
-    { title: "Get Your Service", icon: FileCheck2, dark: false },
+    { title: "Consultation Section", icon: MessageCircle, dark: false, desc: "Share your current books, tax deadlines, and goals in a short discovery call." },
+    { title: "Choose Your Package", icon: SearchCheck, dark: true, desc: "Pick monthly bookkeeping, tax, payroll, or a combined advisory plan." },
+    { title: "Get Your Service", icon: FileCheck2, dark: false, desc: "Upload documents securely while AAPC keeps reports and next steps moving." },
   ];
   return (
     <motion.section {...revealProps(Boolean(reduceMotion))} variants={fadeUp} className="bg-white py-16 md:py-20">
@@ -562,7 +562,7 @@ export function WorksSection() {
                     <Icon className="h-5 w-5 transition duration-300 group-hover:scale-110" />
                   </span>
                   <h3 className="mt-6 font-black">{step.title}</h3>
-                  <p className={`mt-3 text-sm leading-6 ${step.dark ? "text-white/70" : "text-[#6B6475]"}`}>A streamlined process with transparent expectations and clear next steps.</p>
+                  <p className={`mt-3 text-sm leading-6 ${step.dark ? "text-white/70" : "text-[#6B6475]"}`}>{step.desc}</p>
                 </motion.article>
               );
             })}
@@ -576,9 +576,9 @@ export function WorksSection() {
 export function PricingSection() {
   const reduceMotion = useReducedMotion();
   const plans = [
-    ["Starter", "$30,6", "Monthly bookkeeping", "Quarterly reports", "Email support", "Year-end checklist"],
-    ["Growth", "$40,6", "Payroll included", "Tax planning", "Monthly insights", "Sales tax support"],
-    ["Enterprise", "$65,3", "Dedicated advisor", "Audit readiness", "Custom dashboards", "Priority response"],
+    ["Starter", "$306", "Monthly bookkeeping", "Quarterly reports", "Email support", "Year-end checklist"],
+    ["Growth", "$406", "Payroll included", "Tax planning", "Monthly insights", "Sales tax support"],
+    ["Enterprise", "$653", "Dedicated advisor", "Audit readiness", "Custom dashboards", "Priority response"],
   ];
   return (
     <motion.section id="pricing" {...revealProps(Boolean(reduceMotion))} variants={fadeUp} className="bg-white pb-12 pt-6 md:pb-16 md:pt-8 lg:pb-24 lg:pt-10">
@@ -651,20 +651,20 @@ export function FAQSection() {
   const reduceMotion = useReducedMotion();
   const faqs = [
     {
-      question: "How To Change My Photo From Admin Dashboard?",
-      answer: "Yes. You can send updated documents securely and we will confirm what changed before updating your file.",
+      question: "What documents do I need to get started?",
+      answer: "Usually your prior-year tax return, recent bank statements, bookkeeping exports, payroll records, and any CRA notices. We send a simple checklist after the first call.",
     },
     {
-      question: "How To Change My Password Easily?",
-      answer: "Use the password reset option on the client portal, or contact AAPC and we will guide you through a secure reset.",
+      question: "Do you work with businesses outside Vancouver?",
+      answer: "Yes. Most AAPC work can be handled remotely through secure document sharing, video calls, and clear monthly reporting.",
     },
     {
-      question: "How To Change My Subscription Plan Using PayPal",
-      answer: "Tell us which package you want to move to and we will confirm the new monthly amount before updating your PayPal billing.",
+      question: "Can you help before tax season starts?",
+      answer: "Yes. We can review your records, estimate tax exposure, organize deductions, and set up a quarterly planning rhythm before deadlines become stressful.",
     },
     {
-      question: "What Payment Methods Are Available?",
-      answer: "We support secure online payments, PayPal billing, bank transfer, and scheduled monthly payment options for active clients.",
+      question: "Which accounting software do you support?",
+      answer: "We work with QuickBooks, Xero, Bill.com, Gusto, Hubdoc, and clean spreadsheet exports when a client is still transitioning systems.",
     },
   ];
   return (
